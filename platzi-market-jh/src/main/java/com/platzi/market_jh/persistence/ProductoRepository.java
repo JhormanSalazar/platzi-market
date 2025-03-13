@@ -46,12 +46,13 @@ public class ProductoRepository implements ProductRepository {
         return  mapper.toProduct(productoCrudRepository.save(producto));
     }
 
+    @Override
+    public void delete(int idProduct){
+        productoCrudRepository.deleteById(idProduct);
+    }
+
     public List<Producto> getByName(String nombre){
         return productoCrudRepository.findByNombreAndOrderByCantidadStock(nombre);
     }
 
-
-    public void delete(int idProduct){
-        productoCrudRepository.deleteById(idProduct);
-    }
 }
