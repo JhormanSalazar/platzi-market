@@ -8,7 +8,8 @@ import java.util.Optional;
 
 public interface ProductoCrudRepository extends CrudRepository<Producto, Integer> {
    // @Query(value = "SELECT * FROM productos WHERE id_categoria = ?", nativeQuery = true)
-    //Si usamos la notacion @Query, no tendremos que usar queryMethods, pero en este caso si los vamos a usar, asi que comentamos esa linea.
+    //Si usamos la notacion @Query, no tendremos que usar queryMethods, pero en este caso si los vamos a usar,
+   // asi que comentamos esa linea.
     List<Producto> findByIdCategoriaOrderByNomreAsc(int idCategoria);
 
     Optional<List<Producto>> findByCantidadStockLessThanAndEstado(int cantidadStock, boolean estado);

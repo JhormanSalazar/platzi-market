@@ -5,6 +5,7 @@ import com.platzi.market_jh.domain.repository.ProductRepository;
 import com.platzi.market_jh.persistence.crud.ProductoCrudRepository;
 import com.platzi.market_jh.persistence.entities.Producto;
 import com.platzi.market_jh.persistence.mapper.ProductMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,8 +15,14 @@ import java.util.Optional;
 // @Component tambien es valido, pero es una generalizacion, asi que es mejor usar @Repository ya que le decimos el tipo
 // de componente que és.
 public class ProductoRepository implements ProductRepository {
-    private ProductoCrudRepository productoCrudRepository;
-    private ProductMapper mapper;
+    private final ProductoCrudRepository productoCrudRepository;
+    private final ProductMapper mapper;
+
+    @Autowired
+    public ProductoRepository(ProductoCrudRepository productoCrudRepository, ProductMapper mapper){
+        this.productoCrudRepository = productoCrudRepository;
+        this.mapper = mapper;
+    }
 
     @Override
     public List<Product> getAll(){
