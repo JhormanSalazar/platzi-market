@@ -31,8 +31,8 @@ public class ProductoRepository implements ProductRepository {
     }
 
     @Override
-    public Optional<List<Product>> getByCategory(int categoryId) {
-        List<Producto> productos =  productoCrudRepository.findByIdCategoriaOrderByNomreAsc(categoryId);
+    public Optional<List<Product>> getByCategory(Integer categoryId) {
+        List<Producto> productos =  productoCrudRepository.findByIdCategoriaOrderByNombreAsc(categoryId);
         return Optional.of(mapper.toProducts(productos));
     }
 
@@ -43,7 +43,7 @@ public class ProductoRepository implements ProductRepository {
     }
 
     @Override
-    public Optional<Product> getProduct(int productId) {
+    public Optional<Product> getProduct(Long productId) {
         return  productoCrudRepository.findByIdProducto(productId).map(producto -> mapper.toProduct(producto));
     }
 
@@ -54,12 +54,12 @@ public class ProductoRepository implements ProductRepository {
     }
 
     @Override
-    public void delete(int idProduct){
+    public void delete(Long idProduct){
         productoCrudRepository.deleteById(idProduct);
     }
 
     public List<Producto> getByName(String nombre){
-        return productoCrudRepository.findByNombreAndOrderByCantidadStock(nombre);
+        return productoCrudRepository.findByNombreOrderByCantidadStock(nombre);
     }
 
 }
