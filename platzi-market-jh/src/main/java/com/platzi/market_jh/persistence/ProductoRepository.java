@@ -5,6 +5,9 @@ import com.platzi.market_jh.domain.repository.ProductRepository;
 import com.platzi.market_jh.persistence.crud.ProductoCrudRepository;
 import com.platzi.market_jh.persistence.entities.Producto;
 import com.platzi.market_jh.persistence.mapper.ProductMapper;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
